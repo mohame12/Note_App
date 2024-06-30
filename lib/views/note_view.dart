@@ -7,9 +7,18 @@ class NoteView extends StatelessWidget {
   static const String id='HomeScreen';
   @override
   Widget build(BuildContext context) {
-    return  const SafeArea(
+    return   SafeArea(
       child: Scaffold(
-        body: NoteViewBody(),
+        body: const NoteViewBody(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blueAccent.withOpacity(0.9),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28)
+          ),
+
+          onPressed: (){},
+          child: const Icon(Icons.add ),
+        ),
       ),
     );
   }
