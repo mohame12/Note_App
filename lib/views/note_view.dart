@@ -7,7 +7,7 @@ class NoteView extends StatelessWidget {
   static const String id='HomeScreen';
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  const SafeArea(
       child: Scaffold(
         body: NoteViewBody(),
       ),

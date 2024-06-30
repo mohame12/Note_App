@@ -13,7 +13,7 @@ class CustomSearchIcon extends StatelessWidget {
         height: 46,
         width: 46,
         decoration: BoxDecoration(
-            color: Color(0xff3B3B3B),
+            color: const Color(0xff3B3B3B),
             borderRadius: BorderRadius.circular(18)
         ),
         child: const Icon(Icons.search),
