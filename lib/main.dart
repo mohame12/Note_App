@@ -11,13 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   return MaterialApp(
+    debugShowCheckedModeBanner: false,
+
     theme: ThemeData(
         brightness: Brightness.dark,
     fontFamily: 'Poppins'),
-
-    debugShowCheckedModeBanner: false,
     routes: {
-      NoteView.id:(context)=>const NoteView(),
+      NoteView.id:(context)=> const NoteView(),
     },
     initialRoute: NoteView.id,
   );

@@ -7,7 +7,7 @@ class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Expanded(child: Padding(
-      padding: const EdgeInsetsDirectional.only(top: 10),
+      padding: const EdgeInsetsDirectional.symmetric(vertical: 10),
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) =>  const Padding(
