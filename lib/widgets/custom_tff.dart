@@ -1,20 +1,35 @@
 import 'package:flutter/material.dart';
 
 class TextFF extends StatelessWidget {
-  const TextFF({
-    super.key, required this.hint, required this.maxLines,
+   const TextFF({
+    super.key, required this.hint, required this.maxLines, this.validation, this.onSaved, this.prefix
   });
 
   final String hint;
   final int maxLines;
+  final String? Function(String?)? validation ;
+  final void Function(String?)? onSaved;
+  final Widget? prefix;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved ,
+
+
+      validator: (value) {
+        if(value?.isEmpty ?? true)
+          {
+            return 'required Field...';
+          }
+        else {
+          return null;
+        }
+      },
       maxLines: maxLines,
-      cursorColor: Color(0xff53EBD6),
+      cursorColor: const Color(0xff53EBD6),
       decoration: InputDecoration(
         hintText: hint,
-        prefix: Icon(Icons.title,color: Color(0xff53EBD6),),
+        prefix: prefix,
         border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorderfoucsed(),
