@@ -15,7 +15,6 @@ class _BottomShetFABState extends State<BottomShetFAB> {
 
 
     AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
-    
     String ? title,subtitle;
 
   @override
@@ -30,6 +29,7 @@ class _BottomShetFABState extends State<BottomShetFAB> {
         padding: const EdgeInsetsDirectional.only(top:40 ,end:20 ,start:20 ,bottom:20 ),
         child: SingleChildScrollView(
           child: Form(
+            autovalidateMode: autovalidateMode,
             key: formkey,
             child: Column(
               mainAxisSize: MainAxisSize.min,

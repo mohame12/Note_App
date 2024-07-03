@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_appbar.dart';
-import '../widgets/custom_tff.dart';
+import 'custom_appbar.dart';
+import 'custom_tff.dart';
 
 class EditViewUI extends StatelessWidget {
   const EditViewUI({

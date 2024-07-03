@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'edit_view_ui.dart';
+import '../widgets/edit_view_ui.dart';
 
 
 class EditView extends StatelessWidget {
@@ -8,7 +8,7 @@ class EditView extends StatelessWidget {
 static const String id='Editview';
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  const SafeArea(
       child: Scaffold(
         body: EditViewUI(),
       ),

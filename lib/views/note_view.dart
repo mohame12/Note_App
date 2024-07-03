@@ -18,32 +18,28 @@ class _NoteViewState extends State<NoteView> {
   bool isShown=false;
   @override
   Widget build(BuildContext context) {
-    return   SafeArea(
+    return SafeArea(
       child: Scaffold(
         key: scaffoldkey,
         body: const NoteViewBody(),
 
-        floatingActionButton: FloatingActionButton(onPressed: ()
-        {
+        floatingActionButton: FloatingActionButton(onPressed: () {
           onPressed(context);
         },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(28)
+              borderRadius: BorderRadius.circular(28)
           ),
           backgroundColor: Colors.blue.withOpacity(0.9),
-          child:Icon(icon),),
+          child: Icon(icon),),
       ),
     );
   }
-
-
-
 
   void onPressed(BuildContext context) {
      if(isShown==false) {
       scaffoldkey.currentState?.showBottomSheet(
             (context) =>
-           BottomShetFAB(),).closed.then((e){
+           const BottomShetFAB(),).closed.then((e){
         isShown=false;
         setState(() {
           icon=Icons.add;
