@@ -39,7 +39,7 @@ class _NoteViewState extends State<NoteView> {
      if(isShown==false) {
       scaffoldkey.currentState?.showBottomSheet(
             (context) =>
-           const BottomShetFAB(),).closed.then((e){
+            BottomShetFAB(),).closed.then((e){
         isShown=false;
         setState(() {
           icon=Icons.add;
