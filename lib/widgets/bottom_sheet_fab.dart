@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:note_app/Cubits/addnotecubit/add_note_cubit.dart';
-
+import '../consts/consts.dart';
 import 'custom_tff.dart';
-class BottomShetFAB extends StatelessWidget {
 
-
-    GlobalKey<FormState> formkey=GlobalKey();
-    AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
-    String ? title,subtitle;
-
+class BottomShetFAB extends StatefulWidget {
   BottomShetFAB({super.key});
+
+  @override
+  State<BottomShetFAB> createState() => _BottomShetFABState();
+}
+
+class _BottomShetFABState extends State<BottomShetFAB> {
+
+    String ? title,subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,35 +20,16 @@ class BottomShetFAB extends StatelessWidget {
           color: const Color(0xff303030),
           borderRadius: BorderRadius.circular(16)
       ),
-      child:
-      Padding(
+      child: Padding(
         padding:  EdgeInsetsDirectional.only(top:40 ,end:20 ,start:20 ,bottom:20 ),
-        child: SingleChildScrollView(
-          child: BlocConsumer<AddNoteCubit, AddNoteState>(
-  listener: (context, state) {
-    if(state is NoteFailurState)
-      {
-        print('Failed ${state.error}');
-      }
-    if (state is NoteSuccesState)
-      {
-        Navigator.pop(context);
-      }
-  },
+        child:
+        SingleChildScrollView(child: buildForm(context)),
 
-  builder: (context, state) {
-
-    return ModalProgressHUD(inAsyncCall: state is NoteLoadingState ?true:false,
-    child: buildForm(context));
-  },
-),
         ),
-      ));
+      );
+
   }
 
-  
-  
-  
   Form buildForm(BuildContext context) {
     return Form(
           autovalidateMode: autovalidateMode,
@@ -60,10 +41,14 @@ class BottomShetFAB extends StatelessWidget {
 
 
               const SizedBox(height: 25,),
+
                TextFF(hint: 'contant', maxLines: 5,onSaved: (val){subtitle=val;},),
 
 
               const SizedBox(height: 80,),
+
+
+
               Padding(
                 padding: const EdgeInsetsDirectional.only(bottom: 20),
                 child: SizedBox(
@@ -80,10 +65,10 @@ class BottomShetFAB extends StatelessWidget {
                           }
                         else
                           {
-                            autovalidateMode=AutovalidateMode.always;
-                            //setState(() {
+                            autovalidateMode=AutovalidateMode.onUserInteraction;
+                            setState(() {
 
-                            //});
+                            });
                           }
 
 

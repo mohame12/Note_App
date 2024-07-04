@@ -14,9 +14,13 @@ class EditViewUI extends StatelessWidget {
       padding: EdgeInsetsDirectional.only(top:16 ,start:16 ,end:16 ),
       child: Column(
         children: [
+
           CustomAppbar(title: 'Edite Note ', icon: Icons.done,),
+
           SizedBox(height: 30,),
+
           TextFF(hint: 'Title', maxLines: 1),
+
           SizedBox(height: 20,),
 
           TextFF(hint: 'Content', maxLines: 5)
