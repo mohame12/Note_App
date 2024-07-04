@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String KNotesBox='notes_box';
+const String kNotesBox='notes box';
 GlobalKey<ScaffoldState> scaffoldkey=GlobalKey();
 GlobalKey<FormState> formkey=GlobalKey();
 AutovalidateMode autovalidateMode=AutovalidateMode.disabled;

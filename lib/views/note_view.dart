@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/widgets/note_view_body.dart';
-import '../consts/consts.dart';
+import '../consts.dart';
 import '../widgets/floatingactionbottom.dart';
 
 class NoteView extends StatelessWidget {
