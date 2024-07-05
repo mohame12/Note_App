@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/Cubits/AddNoteCubit/add_note_cubit.dart';
 import 'package:note_app/models/note_model.dart';
+import 'package:note_app/widgets/colorsListVeiw.dart';
 import '../consts.dart';
 import 'custom_tff.dart';
 
@@ -36,8 +37,10 @@ class FormValidationBottomSheet extends StatelessWidget {
             },
           ),
           const SizedBox(
-            height: 80,
+            height: 20,
           ),
+          ColorsListVeiw(),
+          SizedBox(height: 20,),
           Padding(
             padding: const EdgeInsetsDirectional.only(bottom: 20),
             child: SizedBox(
@@ -60,7 +63,7 @@ class FormValidationBottomSheet extends StatelessWidget {
                           title: AddNoteCubit.get(context).title!,
                           subtitle: AddNoteCubit.get(context).subtitle!,
                           date:formattedcurrentdate,
-                          color: Colors.blue.value);
+                          color: AddNoteCubit.get(context).color.value);
                       AddNoteCubit.get(context).addNote(note);
 
 
@@ -80,7 +83,8 @@ class FormValidationBottomSheet extends StatelessWidget {
                         fontWeight: FontWeight.bold, color: Colors.black),
                   )),
             ),
-          )
+          ),
+
         ],
       ),
     );

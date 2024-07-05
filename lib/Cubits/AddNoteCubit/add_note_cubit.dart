@@ -17,6 +17,7 @@ class AddNoteCubit extends Cubit<AddNoteState>
   GlobalKey<FormState> formkey=GlobalKey();
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
   String ? title,subtitle;
+  Color color=Color(0xffF6E9E9);
   IconData icon=Icons.add;
   bool isShown=false;
 
@@ -48,6 +49,7 @@ class AddNoteCubit extends Cubit<AddNoteState>
 
   addNote(NoteModel note)
   {
+    note.color=color.value;
     emit(AddNoteLoadDataState());
 
       var notesBox = Hive.box<NoteModel>(kNotesBox);
