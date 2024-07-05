@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 
 class CustomSearchIcon extends StatelessWidget {
   const CustomSearchIcon({
-    super.key, required this.icon,
+    super.key, required this.icon, required this.ontap,
   });
   final IconData icon;
+  final void Function() ontap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap:ontap,
       child: Container(
         height: 46,
         width: 46,

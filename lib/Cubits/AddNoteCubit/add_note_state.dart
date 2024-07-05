@@ -19,6 +19,7 @@ final class FitchListSuccesDataState extends AddNoteState {}
 
 
 final class DeleteNoteitemState extends AddNoteState {}
+final class UpdteNoteitemState extends AddNoteState{}
 
 
 

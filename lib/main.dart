@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       fontFamily: 'Poppins'),
       routes: {
         NoteView.id:(context)=> const NoteView(),
-        EditView.id:(context)=>const EditView(),
+        // EditView.id:(context)=>const EditView(),
       },
       initialRoute: NoteView.id,
     ),

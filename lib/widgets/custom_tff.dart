@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TextFF extends StatelessWidget {
    const TextFF({
-    super.key, required this.hint, required this.maxLines, this.validation, this.onSaved, this.prefix
+    super.key, required this.hint, required this.maxLines, this.validation, this.onSaved, this.prefix, this.onChanged
   });
 
   final String hint;
@@ -10,12 +10,12 @@ class TextFF extends StatelessWidget {
   final String? Function(String?)? validation ;
   final void Function(String?)? onSaved;
   final Widget? prefix;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved ,
-
-
+      onChanged:onChanged ,
       validator: (value) {
         if(value?.isEmpty ?? true)
           {

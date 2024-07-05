@@ -75,4 +75,13 @@ class AddNoteCubit extends Cubit<AddNoteState>
     emit(DeleteNoteitemState());
   }
 
+
+  updateNote(NoteModel note,String? title,String ?content)
+  {
+    note.title=title ??note.title;
+    note.subtitle=content ??note.subtitle;
+    note.save();
+    emit(DeleteNoteitemState());
+  }
+
 }
