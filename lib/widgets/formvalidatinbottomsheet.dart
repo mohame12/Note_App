@@ -39,8 +39,8 @@ class FormValidationBottomSheet extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          ColorsListVeiw(),
-          SizedBox(height: 20,),
+          const ColorsListVeiw(),
+          const SizedBox(height: 20,),
           Padding(
             padding: const EdgeInsetsDirectional.only(bottom: 20),
             child: SizedBox(
@@ -74,10 +74,10 @@ class FormValidationBottomSheet extends StatelessWidget {
                           AutovalidateMode.onUserInteraction;
                     }
                   },
-                  child:isloading ?CircularProgressIndicator(
+                  child:isloading ?const CircularProgressIndicator(
                     color: Colors.black,
                   ):
-                  Text(
+                  const Text(
                     'Add',
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.black),

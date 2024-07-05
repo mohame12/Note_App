@@ -21,7 +21,7 @@ class _EditViewUIState extends State<EditViewUI> {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: EdgeInsetsDirectional.only(top:16 ,start:16 ,end:16 ),
+      padding: const EdgeInsetsDirectional.only(top:16 ,start:16 ,end:16 ),
       child: Column(
         children: [
 
@@ -44,7 +44,7 @@ class _EditViewUIState extends State<EditViewUI> {
           TextFF(hint: 'Content', maxLines: 5,onChanged: (val){
             content=val;
           },),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           EditColorForEditUI(note: widget.note,)
         ],
       ),
@@ -73,6 +73,7 @@ late int c;
   ];
   @override
   void initState() {
+    super.initState();
     // TODO: implement initState
      c=color.indexOf(Color(widget.note.color));
   }
@@ -81,7 +82,7 @@ late int c;
     return SizedBox(
       height: 38*2,
       child: ListView.separated(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context,index)=>GestureDetector(
             onTap: (){

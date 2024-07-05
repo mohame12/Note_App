@@ -16,7 +16,7 @@ class BottomShetFAB extends StatelessWidget {
           borderRadius: BorderRadius.circular(16)
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.only(
+        padding: const EdgeInsetsDirectional.only(
             top: 40, end: 20, start: 20, bottom: 20),
         child:
         BlocConsumer<AddNoteCubit, AddNoteState>(

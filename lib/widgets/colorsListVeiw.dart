@@ -24,7 +24,7 @@ class _ColorsListVeiwState extends State<ColorsListVeiw> {
     return SizedBox(
       height: 38*2,
       child: ListView.separated(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder:(context,index)=>GestureDetector(
             onTap: ()

@@ -18,7 +18,7 @@ class AddNoteCubit extends Cubit<AddNoteState>
   GlobalKey<FormState> formkey=GlobalKey();
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
   String ? title,subtitle;
-  Color color=Color(0xffF6E9E9);
+  Color color=const Color(0xffF6E9E9);
   IconData icon=Icons.add;
   bool isShown=false;
 
@@ -84,7 +84,7 @@ class AddNoteCubit extends Cubit<AddNoteState>
 
     note.title=title ??note.title;
     note.subtitle=content ??note.subtitle;
-    note.color=color.value ??note.color;
+    note.color=color.value ;
 
 
     note.save();
