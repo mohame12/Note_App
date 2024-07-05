@@ -33,6 +33,7 @@ class _ColorsListVeiwState extends State<ColorsListVeiw> {
               setState(() {
                 CurrentIndex=index;
                 AddNoteCubit.get(context).color=color[index];
+                AddNoteCubit.get(context).cindex=index;
               });
             },
             child: ColorWidget(

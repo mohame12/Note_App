@@ -12,6 +12,7 @@ class AddNoteCubit extends Cubit<AddNoteState>
   static AddNoteCubit get(context)=>BlocProvider.of(context);
 
 
+  int? cindex;
   List<NoteModel>? noteList;
   GlobalKey<ScaffoldState> scaffoldkey=GlobalKey();
   GlobalKey<FormState> formkey=GlobalKey();
@@ -78,10 +79,14 @@ class AddNoteCubit extends Cubit<AddNoteState>
   }
 
 
-  updateNote(NoteModel note,String? title,String ?content)
+  updateNote(NoteModel note,String? title,String ?content,Color color)
   {
+
     note.title=title ??note.title;
     note.subtitle=content ??note.subtitle;
+    note.color=color.value ??note.color;
+
+
     note.save();
     emit(DeleteNoteitemState());
   }
