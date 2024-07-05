@@ -13,9 +13,10 @@ import 'Cubits/blocObserver.dart';
 void main()async
 {
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
-  print('$kNotesBox is open');
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNotesBox);
+  print('$kNotesBox is open');
+
 
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());

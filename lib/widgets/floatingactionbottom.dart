@@ -1,47 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../consts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_app/Cubits/AddNoteCubit/add_note_cubit.dart';
+import 'package:note_app/Cubits/AddNoteCubit/add_note_state.dart';
 import 'bottom_sheet_fab.dart';
 
-class FloatingActionBootomFAB extends StatefulWidget {
+class FloatingActionBootomFAB extends StatelessWidget {
   const FloatingActionBootomFAB({super.key});
 
-  @override
-  State<FloatingActionBootomFAB> createState() => _FloatingActionBootomFABState();
-}
-
-class _FloatingActionBootomFABState extends State<FloatingActionBootomFAB> {
-  IconData icon=Icons.add;
-  bool isShown=false;
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(onPressed: () {
-      if(isShown==false) {
-        scaffoldkey.currentState?.showBottomSheet(
-              (context) =>
-              BottomShetFAB(),).closed.then((e){
-          isShown=false;
-          setState(() {icon=Icons.add;});
-        });
-        isShown=true;
-        setState(() {
-          icon=FontAwesomeIcons.minus;
-        });
-      }else
-      {
-        Navigator.pop(context);
-        isShown=false;
-        setState(() {
-          icon=Icons.add;
-        });
-      }
-    },
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28)
-      ),
-      backgroundColor: Colors.blue.withOpacity(0.9),
-      child: Icon(icon),);
+    return BlocConsumer<AddNoteCubit, AddNoteState>(
+      listener: (context, state) {
+
+      },
+      builder: (context, state) {
+        return FloatingActionButton(onPressed: () {
+          if (AddNoteCubit.get(context).isShown== false) {
+            AddNoteCubit.get(context).scaffoldkey.currentState
+                ?.showBottomSheet(
+                  (context) =>
+                  BottomShetFAB(),)
+                .closed
+                .then((e) {
+                  AddNoteCubit.get(context).closeFABMunel();
+            });
+
+
+            AddNoteCubit.get(context).closeFAB1state();
+          } else {
+
+            Navigator.pop(context);
+            AddNoteCubit.get(context).openFAB0state();
+          }
+        },
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28)
+          ),
+          backgroundColor: Colors.blue.withOpacity(0.9),
+          child: Icon(AddNoteCubit.get(context).icon),);
+      },
+    );
   }
 }

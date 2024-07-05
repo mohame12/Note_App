@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import '../consts.dart';
-import 'custom_tff.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_app/Cubits/AddNoteCubit/add_note_cubit.dart';
+import 'package:note_app/Cubits/AddNoteCubit/add_note_state.dart';
+import 'package:note_app/widgets/formvalidatinbottomsheet.dart';
 
-class BottomShetFAB extends StatefulWidget {
+class BottomShetFAB extends StatelessWidget {
   BottomShetFAB({super.key});
 
-  @override
-  State<BottomShetFAB> createState() => _BottomShetFABState();
-}
-
-class _BottomShetFABState extends State<BottomShetFAB> {
-
-    String ? title,subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -21,64 +16,24 @@ class _BottomShetFABState extends State<BottomShetFAB> {
           borderRadius: BorderRadius.circular(16)
       ),
       child: Padding(
-        padding:  EdgeInsetsDirectional.only(top:40 ,end:20 ,start:20 ,bottom:20 ),
+        padding: EdgeInsetsDirectional.only(
+            top: 40, end: 20, start: 20, bottom: 20),
         child:
-        SingleChildScrollView(child: buildForm(context)),
-
+        BlocConsumer<AddNoteCubit, AddNoteState>(
+          listener: (context, state) {
+            if (state is AddNoteSuccesDataState) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return SingleChildScrollView(
+                child: FormValidationBottomSheet(isloading: state is AddNoteLoadDataState ? true :false,));
+          },
         ),
-      );
 
+      ),
+    );
   }
 
-  Form buildForm(BuildContext context) {
-    return Form(
-          autovalidateMode: autovalidateMode,
-          key: formkey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-               TextFF(hint: 'Title', maxLines: 1,onSaved: (val){title=val;},),
 
-
-              const SizedBox(height: 25,),
-
-               TextFF(hint: 'contant', maxLines: 5,onSaved: (val){subtitle=val;},),
-
-
-              const SizedBox(height: 80,),
-
-
-
-              Padding(
-                padding: const EdgeInsetsDirectional.only(bottom: 20),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 55,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),backgroundColor: const Color(0xff53EBD6).withOpacity(0.9)),
-
-
-                      onPressed: (){
-                        if(formkey.currentState!.validate())
-                          {
-                            formkey.currentState!.save();
-                          }
-                        else
-                          {
-                            autovalidateMode=AutovalidateMode.onUserInteraction;
-                            setState(() {
-
-                            });
-                          }
-
-
-                      },
-                      child:const Text('Add',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),) ),
-                ),
-              )
-            ],
-          ),
-        );
-  }
 }
-

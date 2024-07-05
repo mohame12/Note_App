@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-const String kNotesBox='notes box';
-GlobalKey<ScaffoldState> scaffoldkey=GlobalKey();
-GlobalKey<FormState> formkey=GlobalKey();
-AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
-IconData icon=Icons.add;
-bool isShown=false;
+const String kNotesBox='notebox15';
+var currentdate=DateTime.now();
+var formattedcurrentdate=DateFormat.yMMMd().format(currentdate);
+
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/Cubits/AddNoteCubit/add_note_cubit.dart';
 import 'package:note_app/widgets/note_view_body.dart';
-import '../consts.dart';
 import '../widgets/floatingactionbottom.dart';
 
 class NoteView extends StatelessWidget {
@@ -12,7 +12,7 @@ class NoteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        key: scaffoldkey,
+        key: AddNoteCubit.get(context).scaffoldkey,
         body: const NoteViewBody(),
         floatingActionButton: const FloatingActionBootomFAB(),
       ),
