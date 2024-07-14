@@ -1,6 +1,7 @@
 # note_app
 
-A new Flutter project.
+Note App By Using Hive and (Bloc,Cubit)statemanegement
+using (CRUD) on Hive
 
 ## Getting Started
 ![WhatsApp Image 2024-07-14 at 6 08 15 PM](https://github.com/user-attachments/assets/079ab911-01f4-4d40-b362-059d068b08b1)
